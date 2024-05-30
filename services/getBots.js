@@ -3,8 +3,10 @@ import client from './client';
 export const getBots = async () => {
   const route = 'getBots';
   const url = `${route}`;
-
-  const {data} = await client.get(url);
-
-  return data;
+  try {
+    const {data} = await client.get(url);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
