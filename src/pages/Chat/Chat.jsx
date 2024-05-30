@@ -20,14 +20,10 @@ const Chat = ({navigation}) => {
 
   const {name, botId} = route.params;
   const [messages, setMessages] = useState([]);
-  console.log(botId);
+
   const [message, setMessage] = useState('');
 
   const scrollViewRef = useRef(null);
-
-  useEffect(() => {
-    console.log(messages.length);
-  }, [messages]);
 
   const scrollToEnd = () => {
     if (scrollViewRef.current) {
