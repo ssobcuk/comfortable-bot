@@ -11,13 +11,15 @@ const BottomTabs = () => {
 
   const renderIcon = (route, focused) => {
     const color = focused ? '#FF6347' : '#494949';
-
-    if (route === 'Bots') {
-      return <ChatbotIcon fill={color} />;
-    } else if (route === 'Pricing') {
-      return <CoinsIcon fill={color} />;
-    } else if (route === 'About') {
-      return <AboutIcon fill={color} />;
+    switch (route) {
+      case 'Bots':
+        return <ChatbotIcon fill={color} />;
+      case 'Pricing':
+        return <CoinsIcon fill={color} />;
+      case 'About':
+        return <AboutIcon fill={color} />;
+      default:
+        return null;
     }
   };
 

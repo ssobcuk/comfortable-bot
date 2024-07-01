@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   KeyboardAvoidingView,
   SafeAreaView,
@@ -17,12 +17,9 @@ import CloseIcon from '../../../assets/svg/CloseIcon';
 
 const Chat = ({navigation}) => {
   const route = useRoute();
-
   const {name, botId} = route.params;
   const [messages, setMessages] = useState([]);
-
   const [message, setMessage] = useState('');
-
   const scrollViewRef = useRef(null);
 
   const scrollToEnd = () => {
@@ -62,14 +59,11 @@ const Chat = ({navigation}) => {
               style={styles.scrollView}
               contentContainerStyle={styles.scrollViewContainer}
               showsVerticalScrollIndicator={false}>
-              <>
-                {messages?.map((el, index) => (
-                  <Message index={index} message={el} key={el} />
-                ))}
-              </>
+              {messages.map((el, index) => (
+                <Message index={index} message={el} key={index} />
+              ))}
             </ScrollView>
           </View>
-
           <ChatInput
             onSend={postMessage}
             scrollToEnd={scrollToEnd}

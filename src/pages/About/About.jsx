@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import styles from './About.styles';
 
-const About = ({}) => {
+const About = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Hello!</Text>
@@ -17,7 +17,7 @@ const About = ({}) => {
         now. {'\n'}Of course, I plan to expand the capabilities of the
         ComfortableBot, including authorization, saving message and chat
         history, payment for usage, extending model settings, and much more. But
-        for now, main goal of the app - show the results of my work as a
+        for now, the main goal of the app is to show the results of my work as a
         developer. So enjoy using it ;)
       </Text>
       <Text style={styles.signature}>O. Sobchuk</Text>

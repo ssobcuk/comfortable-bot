@@ -9,18 +9,19 @@ import Animated, {
   SlideInUp,
 } from 'react-native-reanimated';
 
-const Bots = ({botId, navigation}) => {
+const Bots = ({navigation}) => {
   const [bots, setBots] = useState([]);
 
   useEffect(() => {
-    (async () => {
+    const fetchBots = async () => {
       const availableBots = await getBots();
-      
       setBots(availableBots);
-    })();
+    };
+
+    fetchBots();
   }, []);
 
-  const renderItem = item => (
+  const renderItem = ({item}) => (
     <Animated.View
       entering={SlideInUp.duration(1500)}
       layout={LinearTransition.springify()}
@@ -35,13 +36,13 @@ const Bots = ({botId, navigation}) => {
         <Animated.View
           entering={SlideInLeft.duration(500)}
           layout={LinearTransition.springify()}>
-          <Text style={styles.title}>{'Push & Chat ↓'}</Text>
+          <Text style={styles.title}>Push & Chat ↓</Text>
         </Animated.View>
         <FlatList
-          onRefresh={() => getBots()}
+          onRefresh={getBots}
           refreshing={false}
           data={bots}
-          renderItem={({item}) => renderItem(item)}
+          renderItem={renderItem}
           keyExtractor={item => item.name}
           contentContainerStyle={{
             alignItems: 'center',

@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import styles from './Pricing.styles';
 
-const Pricing = ({botId}) => {
+const Pricing = () => {
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.container}>

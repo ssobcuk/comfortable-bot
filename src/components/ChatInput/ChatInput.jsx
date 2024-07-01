@@ -5,7 +5,7 @@ import styles from './ChatInput.styles';
 
 const ChatInput = ({onSend, scrollToEnd, message, setMessage}) => {
   const sendMessage = async () => {
-    if (message?.trim()) {
+    if (message.trim()) {
       await onSend(message);
     }
   };
@@ -19,12 +19,9 @@ const ChatInput = ({onSend, scrollToEnd, message, setMessage}) => {
         value={message}
         placeholder="Ask me something!"
         multiline
-        onFocus={() =>
-          // setTimeout(() => {
-          scrollToEnd()
-        }
+        onFocus={scrollToEnd}
       />
-      <TouchableOpacity style={styles.button} onPress={() => sendMessage()}>
+      <TouchableOpacity style={styles.button} onPress={sendMessage}>
         <SendIcon />
       </TouchableOpacity>
     </View>
